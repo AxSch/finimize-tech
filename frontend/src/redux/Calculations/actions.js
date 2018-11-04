@@ -21,6 +21,13 @@ const setMonthlyAmount = (monthlyAmount) => ({
   }
 });
 
+const setFrequency = (frequency) => ({
+  type: actionTypes.SET_FREQUENCY,
+  payload: {
+    frequency,
+  }
+});
+
 const calculateSavings = (savingsAmount, monthlyAmount, interestRate) => ({
   type: actionTypes.CALCULATE_AMOUNT_SUCCESS,
   payload: {
@@ -34,6 +41,7 @@ const calculationsActions = {
   setSavingsAmount,
   setInterestRate,
   setMonthlyAmount,
+  setFrequency,
   calculateSavings,
 }
 
