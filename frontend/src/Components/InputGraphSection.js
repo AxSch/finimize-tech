@@ -7,7 +7,7 @@ import "./InputGraphSection.css";
 
 class InputGraphSection extends Component {
   render() {
-    const { result, setInterestRate } = this.props
+    const { result, setInterestRate, setMonthlyAmount } = this.props
 
     return (
       <div>
@@ -16,7 +16,7 @@ class InputGraphSection extends Component {
           <CurrencyInput defaultValue={0} />
 
           <p className="input-label">How much will you save each month?</p>
-          <CurrencyInput defaultValue={0} />
+          <CurrencyInput defaultValue={0} setMonthlyAmount={setMonthlyAmount} />
 
           <p className="input-label">
             How much interest will you earn per year?
@@ -55,7 +55,7 @@ class InputGraphSection extends Component {
 InputGraphSection.propTypes = {
   result: PropTypes.number,
   setInterestRate: PropTypes.func,
-  calculateSavings: PropTypes.func,
+  setMonthlyAmount: PropTypes.func,
   calculations: PropTypes.object
 }
 
