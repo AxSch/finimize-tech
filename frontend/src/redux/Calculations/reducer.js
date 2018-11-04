@@ -16,7 +16,7 @@ const calculationsReducer = (state=initialState, action) => {
     case actionTypes.SET_SAVINGS_AMOUNT:
       return {
         ...state,
-        initialSavings: action.payload.initialSavings
+        initialSavings: action.payload.savingsAmount
       }
     case actionTypes.SET_INTEREST_RATE:
       return {
