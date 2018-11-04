@@ -1,12 +1,13 @@
-import React, { Component } from "react"
-import CurrencyInput from "./CurrencyInput"
-import SliderInput from "./SliderInput"
-import DisplayGraph from "./DisplayGraph"
-import "./InputGraphSection.css"
+import React, { Component } from "react";
+import CurrencyInput from "./CurrencyInput";
+import SliderInput from "./SliderInput";
+import DisplayGraph from "./DisplayGraph";
+import PropTypes from "prop-types";
+import "./InputGraphSection.css";
 
-export default class InputGraphSection extends Component {
+class InputGraphSection extends Component {
   render() {
-    const { result } = this.props
+    const { result, setInterestRate } = this.props
 
     return (
       <div>
@@ -20,7 +21,7 @@ export default class InputGraphSection extends Component {
           <p className="input-label">
             How much interest will you earn per year?
           </p>
-          <SliderInput defaultValue={4} />
+          <SliderInput defaultValue={4} setInterestRate={setInterestRate}/>
         </div>
         <div className="financial-display">
           {/*We have included some sample data here, you will need to replace this
@@ -50,3 +51,13 @@ export default class InputGraphSection extends Component {
     )
   }
 }
+
+InputGraphSection.propTypes = {
+  result: PropTypes.number,
+  setInterestRate: PropTypes.func,
+  calculateSavings: PropTypes.func,
+  calculations: PropTypes.object
+}
+
+
+export default InputGraphSection;
