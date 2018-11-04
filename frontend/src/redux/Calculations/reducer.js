@@ -4,6 +4,7 @@ const initialState = {
   initialSavings: undefined,
   interestRate: 0.0,
   monthlySaveAmount: undefined,
+  result: undefined,
   errors: {
     initialSavingsError: undefined,
     interestRateError: undefined,
