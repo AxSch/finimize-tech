@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
 import InputGraphSection from '../InputGraphSection';
 import { bindActionCreators } from 'redux';
-import { interestRateDispatcher, monthlyAmountDispatcher } from '../../redux/Calculations/dispatchers';
+import { 
+    interestRateDispatcher,
+    monthlyAmountDispatcher,
+    setSavingsAmountDispatcher
+} from '../../redux/Calculations/dispatchers';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -12,7 +16,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => (
     bindActionCreators({
         setInterestRate: interestRateDispatcher,
-        setMonthlyAmount: monthlyAmountDispatcher
+        setMonthlyAmount: monthlyAmountDispatcher,
+        setSavingsAmount: setSavingsAmountDispatcher
     }, dispatch)
 );
 
