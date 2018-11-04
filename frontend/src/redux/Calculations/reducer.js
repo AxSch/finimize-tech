@@ -4,6 +4,7 @@ const initialState = {
   initialSavings: undefined,
   interestRate: 0.0,
   monthlySaveAmount: undefined,
+  interestFreq: undefined,
   result: undefined,
   errors: {
     initialSavingsError: undefined,
@@ -23,6 +24,11 @@ const calculationsReducer = (state=initialState, action) => {
       return {
         ...state,
         interestRate: action.payload.interestRate
+      }
+    case actionTypes.SET_FREQUENCY:
+      return {
+        ...state,
+        interestFreq: action.payload.frequency
       }
     case actionTypes.SET_MONTHLY_SAVE_AMOUNT:
       return {
