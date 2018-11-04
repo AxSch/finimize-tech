@@ -24,7 +24,7 @@ const monthlyAmountDispatcher = (monthlyAmount) => {
 
 const setSavingsAmountDispatcher = (monthlyAmount) => {
   return dispatch => {
-    dispatch(calculationsActions.setMonthlyAmount(monthlyAmount))
+    dispatch(calculationsActions.setSavingsAmount(monthlyAmount))
   };
 }
 
