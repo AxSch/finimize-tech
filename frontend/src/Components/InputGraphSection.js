@@ -1,13 +1,15 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import CurrencyInput from "./CurrencyInput";
 import SliderInput from "./SliderInput";
 import DisplayGraph from "./DisplayGraph";
+import InterestFreqInput from "./InterestFreqInput";
 import PropTypes from "prop-types";
 import "./InputGraphSection.css";
 
-class InputGraphSection extends Component {
+class InputGraphSection extends PureComponent {
+
   render() {
-    const { result, setInterestRate, setMonthlyAmount, setSavingsAmount } = this.props
+    const { result, setInterestRate, setMonthlyAmount, setSavingsAmount, calculations, setFrequency } = this.props
 
     return (
       <div>
@@ -22,6 +24,10 @@ class InputGraphSection extends Component {
             How much interest will you earn per year?
           </p>
           <SliderInput defaultValue={0} setInterestRate={setInterestRate}/>
+          <p className="input-label">
+            Please set the timeframe for the interest to be applied:
+          </p>
+          <InterestFreqInput setFrequency={setFrequency}/>
         </div>
         <div className="financial-display">
           {/*We have included some sample data here, you will need to replace this
@@ -57,6 +63,7 @@ InputGraphSection.propTypes = {
   setInterestRate: PropTypes.func,
   setMonthlyAmount: PropTypes.func,
   setSavingsAmount: PropTypes.func,
+  calculateResult: PropTypes.func,
   calculations: PropTypes.object
 }
 
