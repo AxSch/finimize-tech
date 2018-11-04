@@ -17,7 +17,7 @@ const interestRateDispatcher = (interestRate) => {
 }
 
 const calculationsDispatchers = {
-  savingsDispatcher,
+  // savingsDispatcher,
   interestRateDispatcher
 };
 
