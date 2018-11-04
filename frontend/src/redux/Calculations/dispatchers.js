@@ -28,6 +28,13 @@ const setSavingsAmountDispatcher = (monthlyAmount) => {
   };
 }
 
+const setFrequencyDispatcher = (frequency) => {
+  return dispatch => {
+    dispatch(calculationsActions.setFrequency(frequency))
+  };
+}
+
+
 // const calculationsDispatchers = {
 //   // savingsDispatcher,
 //   interestRateDispatcher
@@ -36,6 +43,7 @@ const setSavingsAmountDispatcher = (monthlyAmount) => {
 export { 
   interestRateDispatcher,
   monthlyAmountDispatcher,
+  setFrequencyDispatcher,
   setSavingsAmountDispatcher
 };
 
