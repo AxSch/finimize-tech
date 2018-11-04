@@ -1,9 +1,11 @@
 import request from "axios"
 
-export const calculate = (savingsAmount, interestRate) => {
+export const calculate = (savingsAmount, monthlyAmount, interestRate, interestFreq) => {
 	return request
 		.post("/calculate/", {
 			savingsAmount,
-			interestRate
+			monthlyAmount,
+			interestRate,
+			interestFreq
 		})
 }
