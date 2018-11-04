@@ -26,7 +26,7 @@ const calculationsReducer = (state=initialState, action) => {
     case actionTypes.SET_MONTHLY_SAVE_AMOUNT:
       return {
         ...state,
-        monthlySaveAmount: action.payload.monthlySaveAmount
+        monthlySaveAmount: action.payload.monthlyAmount
       }
     default:
       return state;
