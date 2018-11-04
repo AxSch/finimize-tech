@@ -16,12 +16,19 @@ const interestRateDispatcher = (interestRate) => {
   };
 }
 
+const monthlyAmountDispatcher = (monthlyAmount) => {
+  return dispatch => {
+    dispatch(calculationsActions.setMonthlyAmount(monthlyAmount))
+  };
+}
+
 // const calculationsDispatchers = {
 //   // savingsDispatcher,
 //   interestRateDispatcher
 // };
 
 export { 
-  interestRateDispatcher
+  interestRateDispatcher,
+  monthlyAmountDispatcher
 };
 
