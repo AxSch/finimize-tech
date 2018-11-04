@@ -15,7 +15,12 @@ export default class CurrencyInput extends Component {
 	handleChange(e) {
 		const value = e.target.value
 		this.setState({value});
-		this.props.setMonthlyAmount(value);
+		if (this.props.inputLabel === "Savings") {
+			this.props.setSavingsAmount(value);
+		} 
+		else if (this.props.inputLabel === "Monthly") {
+			this.props.setMonthlyAmount(value);
+		}
 	}
 
 	handleFocus(e) {
@@ -42,5 +47,7 @@ export default class CurrencyInput extends Component {
 
 CurrencyInput.propTypes = {
 	defaultValue: PropTypes.number,
-	setMonthlyAmount: PropTypes.func
+	setMonthlyAmount: PropTypes.func,
+	setSavingsAmount: PropTypes.func,
+	inputLabel: PropTypes.string,
 }
