@@ -16,10 +16,12 @@ const interestRateDispatcher = (interestRate) => {
   };
 }
 
-const calculationsDispatchers = {
-  // savingsDispatcher,
+// const calculationsDispatchers = {
+//   // savingsDispatcher,
+//   interestRateDispatcher
+// };
+
+export { 
   interestRateDispatcher
 };
-
-export default calculationsDispatchers;
 
