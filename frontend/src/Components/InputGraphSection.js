@@ -21,7 +21,7 @@ class InputGraphSection extends Component {
           <p className="input-label">
             How much interest will you earn per year?
           </p>
-          <SliderInput defaultValue={4} setInterestRate={setInterestRate}/>
+          <SliderInput defaultValue={0} setInterestRate={setInterestRate}/>
         </div>
         <div className="financial-display">
           {/*We have included some sample data here, you will need to replace this
