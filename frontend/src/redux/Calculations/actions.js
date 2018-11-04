@@ -1,6 +1,6 @@
 import actionTypes from './actionTypes';
 
-const setInitialSavingsAmount = (savingsAmount) => ({
+const setSavingsAmount = (savingsAmount) => ({
   type: actionTypes.SET_SAVINGS_AMOUNT,
   payload: {
     savingsAmount,
@@ -14,7 +14,7 @@ const setInterestRate = (interestRate) => ({
   }
 });
 
-const setInitialMonthlyAmount = (monthlyAmount) => ({
+const setMonthlyAmount = (monthlyAmount) => ({
   type: actionTypes.SET_MONTHLY_SAVE_AMOUNT,
   payload: {
     monthlyAmount,
@@ -31,9 +31,9 @@ const calculateSavings = (savingsAmount, monthlyAmount, interestRate) => ({
 });
 
 const calculationsActions = {
-  setInitialSavingsAmount,
+  setSavingsAmount,
   setInterestRate,
-  setInitialMonthlyAmount,
+  setMonthlyAmount,
   calculateSavings,
 }
 
