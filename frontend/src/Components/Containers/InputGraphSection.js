@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux';
 import { 
     interestRateDispatcher,
     monthlyAmountDispatcher,
-    setSavingsAmountDispatcher
+    setSavingsAmountDispatcher,
+    setFrequencyDispatcher
 } from '../../redux/Calculations/dispatchers';
 
 const mapStateToProps = (state, ownProps) => {
@@ -17,7 +18,8 @@ const mapDispatchToProps = dispatch => (
     bindActionCreators({
         setInterestRate: interestRateDispatcher,
         setMonthlyAmount: monthlyAmountDispatcher,
-        setSavingsAmount: setSavingsAmountDispatcher
+        setSavingsAmount: setSavingsAmountDispatcher,
+        setFrequency: setFrequencyDispatcher
     }, dispatch)
 );
 
