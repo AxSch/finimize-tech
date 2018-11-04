@@ -13,8 +13,9 @@ export default class SliderInput extends Component {
 	}
 
 	handleChange(e) {
-		const value = e.target.value
-		this.setState({value})
+		const value = e.target.value;
+		this.setState({value});
+		this.props.setInterestRate(value);
 	}
 
 	render() {
@@ -35,5 +36,6 @@ export default class SliderInput extends Component {
 }
 
 SliderInput.propTypes = {
-	defaultValue: PropTypes.number
+	defaultValue: PropTypes.number,
+	setInterestRate: PropTypes.func
 }
