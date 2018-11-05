@@ -31,7 +31,7 @@ const calculateSavingsDispatcher = (savingsAmount, monthlyAmount, interestRate, 
     calculate(savingsAmount, monthlyAmount, interestRate, interestFreq)
       .then(
         result => {
-          dispatch(calculationsActions.calculateSavingsSuccess(result.data.result));
+          dispatch(calculationsActions.calculateSavingsSuccess(result.data.graph_result, result.data.result));
         },
         error => {
           dispatch(calculationsActions.calculateSavingsFailure(error.response.status));
