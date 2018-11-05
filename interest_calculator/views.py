@@ -1,26 +1,17 @@
-from django.http import JsonResponse, HttpResponseBadRequest
-from django.views.decorators.http import require_POST
-from django.views.decorators.csrf import csrf_exempt
-import json
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializer import CalculationSerializer
+from .utils import calculate
 
-@require_POST
-@csrf_exempt
-def calculate(request):
-    params = json.loads(request.body)
-    savings_amount = params.get('savingsAmount', None)
-    interest_rate = params.get('interestRate', None)
-    monthly_amount = params.get('monthlyAmount', None)
-    interest_freq = params.get('interestFreq', None)
-
-    if savings_amount is None or interest_rate is None:
-        return HttpResponseBadRequest('Required parameters are not provided')
-    
-    results = []
-    t = 50
-    for i in range(t):
-        P = savings_amount + monthly_amount
-        r = interest_rate/100
-        n = interest_freq
-        result = P * (1 + (r/n))**i
-        results.append(result)
-    return JsonResponse({'result': results})
+class CalculationView(APIView):
+    def post(self, request):
+        serializer = CalculationSerializer(data=request.data)
+        if serializer.is_valid():
+            results, result = calculate(
+                serializer.validated_data["savings_amount"],
+                serializer.validated_data["monthly_amount"],
+                serializer.validated_data["interest_rate"],
+                serializer.validated_data["interest_freq"])
+            return Response({'graph_result': results,'result': result })
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
