@@ -55,11 +55,15 @@ class InputGraphSection extends PureComponent {
           </p>
           <InterestFreqInput setFrequency={setFrequency}/>
         </div>
+        <div>
+          <h3>Savings after 50 years:</h3>
+          {calculations.result}
+        </div>
         <div className="financial-display">
           {/*We have included some sample data here, you will need to replace this
             with your own. Feel free to change the data structure if you wish.*/}
           <DisplayGraph
-            data={calculations.result != undefined ? calculations.result :dummyGraphData}
+            data={calculations.graph_results != undefined ? calculations.graph_results :dummyGraphData}
           />
         </div>
       </div>
