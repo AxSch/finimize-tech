@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'interest_calculator'
+    'interest_calculator',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -68,7 +69,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'interest_calculator.wsgi.application'
 
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'test',
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
