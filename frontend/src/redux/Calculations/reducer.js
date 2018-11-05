@@ -5,7 +5,7 @@ const initialState = {
   interestRate: 0.0,
   monthlySaveAmount: undefined,
   interestFreq: undefined,
-  result: undefined,
+  graph_results: undefined,
   error: undefined
 }
 
@@ -34,6 +34,7 @@ const calculationsReducer = (state=initialState, action) => {
     case actionTypes.CALCULATE_AMOUNT_SUCCESS:
       return {
         ...state,
+        graph_results: action.payload.graph_results,
         result: action.payload.result
       }
     case actionTypes.CALCULATE_AMOUNT_FAILURE:
