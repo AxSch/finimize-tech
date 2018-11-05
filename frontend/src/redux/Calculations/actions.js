@@ -28,12 +28,17 @@ const setFrequency = (frequency) => ({
   }
 });
 
-const calculateSavings = (savingsAmount, monthlyAmount, interestRate) => ({
+const calculateSavingsSuccess = (result) => ({
   type: actionTypes.CALCULATE_AMOUNT_SUCCESS,
   payload: {
-    savingsAmount,
-    monthlyAmount,
-    interestRate
+    result
+  }
+});
+
+const calculateSavingsFailure = (error) => ({
+  type: actionTypes.CALCULATE_AMOUNT_FAILURE,
+  payload: {
+    error
   }
 });
 
@@ -42,7 +47,8 @@ const calculationsActions = {
   setInterestRate,
   setMonthlyAmount,
   setFrequency,
-  calculateSavings,
+  calculateSavingsSuccess,
+  calculateSavingsFailure
 }
 
 export default calculationsActions;
