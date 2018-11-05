@@ -28,9 +28,10 @@ const setFrequency = (frequency) => ({
   }
 });
 
-const calculateSavingsSuccess = (result) => ({
+const calculateSavingsSuccess = (graph_results, result) => ({
   type: actionTypes.CALCULATE_AMOUNT_SUCCESS,
   payload: {
+    graph_results,
     result
   }
 });
