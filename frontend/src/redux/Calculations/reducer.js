@@ -6,11 +6,7 @@ const initialState = {
   monthlySaveAmount: undefined,
   interestFreq: undefined,
   result: undefined,
-  errors: {
-    initialSavingsError: undefined,
-    interestRateError: undefined,
-    monthlySaveAmountError: undefined
-  }
+  error: undefined
 }
 
 const calculationsReducer = (state=initialState, action) => {
@@ -34,6 +30,16 @@ const calculationsReducer = (state=initialState, action) => {
       return {
         ...state,
         monthlySaveAmount: action.payload.monthlyAmount
+      }
+    case actionTypes.CALCULATE_AMOUNT_SUCCESS:
+      return {
+        ...state,
+        result: action.payload.result
+      }
+    case actionTypes.CALCULATE_AMOUNT_FAILURE:
+      return {
+        ...state,
+        error: action.payload.error
       }
     default:
       return state;

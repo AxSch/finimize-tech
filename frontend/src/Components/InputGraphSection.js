@@ -7,9 +7,35 @@ import PropTypes from "prop-types";
 import "./InputGraphSection.css";
 
 class InputGraphSection extends PureComponent {
-
+  componentDidUpdate(prevProps){
+    const { calculations, calculateSavings } = this.props;
+    if (calculations.initialSavings !== prevProps.calculations.initialSavings && calculations.initialSavings != undefined||
+        calculations.interestRate !== prevProps.calculations.interestRate && calculations.interestRate != undefined||
+        calculations.monthlySaveAmount !== prevProps.calculations.monthlySaveAmount  && calculations.monthlySaveAmount != undefined||
+        calculations.interestFreq !== prevProps.calculations.interestFreq && calculations.interestFreq != undefined ) {
+          calculateSavings(calculations.initialSavings, calculations.monthlySaveAmount, calculations.interestRate, calculations.interestFreq)
+    }
+  }
   render() {
-    const { result, setInterestRate, setMonthlyAmount, setSavingsAmount, calculations, setFrequency } = this.props
+    const { setInterestRate, setMonthlyAmount, setSavingsAmount, calculations, setFrequency } = this.props
+    const dummyGraphData = [
+      {
+        month: 1,
+        amount: 500
+      },
+      {
+        month: 2,
+        amount: 700
+      },
+      {
+        month: 3,
+        amount: 1000
+      },
+      {
+        month: 4,
+        amount: 1500
+      }
+    ];
 
     return (
       <div>
@@ -33,24 +59,7 @@ class InputGraphSection extends PureComponent {
           {/*We have included some sample data here, you will need to replace this
             with your own. Feel free to change the data structure if you wish.*/}
           <DisplayGraph
-            data={[
-              {
-                month: 1,
-                amount: 500
-              },
-              {
-                month: 2,
-                amount: 700
-              },
-              {
-                month: 3,
-                amount: 1000
-              },
-              {
-                month: 4,
-                amount: 1500
-              }
-            ]}
+            data={calculations.result != undefined ? calculations.result :dummyGraphData}
           />
         </div>
       </div>
@@ -59,11 +68,10 @@ class InputGraphSection extends PureComponent {
 }
 
 InputGraphSection.propTypes = {
-  result: PropTypes.number,
   setInterestRate: PropTypes.func,
   setMonthlyAmount: PropTypes.func,
   setSavingsAmount: PropTypes.func,
-  calculateResult: PropTypes.func,
+  calculateSavings: PropTypes.func,
   calculations: PropTypes.object
 }
 

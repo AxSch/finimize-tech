@@ -1,14 +1,5 @@
 import calculationsActions from './actions';
-// import calculationsService from '../../services/calculationsService';
-
-// const savingsDispatcher = (savingAmount, interestRate, monthlyAmount) => {
-//   return dispatch => {
-//       calculationsService.calculate(savingAmount,interestRate, monthlyAmount)
-//         .then(
-//           dispatch(calculationsActions.calculateSavings(savingAmount, interestRate, monthlyAmount))
-//         );
-//   }
-// }
+import { calculate }  from '../../API';
 
 const interestRateDispatcher = (interestRate) => {
   return dispatch => {
@@ -22,9 +13,9 @@ const monthlyAmountDispatcher = (monthlyAmount) => {
   };
 }
 
-const setSavingsAmountDispatcher = (monthlyAmount) => {
+const setSavingsAmountDispatcher = (savingsAmount) => {
   return dispatch => {
-    dispatch(calculationsActions.setSavingsAmount(monthlyAmount))
+    dispatch(calculationsActions.setSavingsAmount(savingsAmount))
   };
 }
 
@@ -34,16 +25,26 @@ const setFrequencyDispatcher = (frequency) => {
   };
 }
 
-
-// const calculationsDispatchers = {
-//   // savingsDispatcher,
-//   interestRateDispatcher
-// };
+const calculateSavingsDispatcher = (savingsAmount, monthlyAmount, interestRate, interestFreq) => {
+  return dispatch => {
+    console.log(savingsAmount, monthlyAmount, interestRate, interestFreq);
+    calculate(savingsAmount, monthlyAmount, interestRate, interestFreq)
+      .then(
+        result => {
+          dispatch(calculationsActions.calculateSavingsSuccess(result.data.result));
+        },
+        error => {
+          dispatch(calculationsActions.calculateSavingsFailure(error.response.status));
+        }
+      );
+  };
+}
 
 export { 
   interestRateDispatcher,
   monthlyAmountDispatcher,
   setFrequencyDispatcher,
-  setSavingsAmountDispatcher
+  setSavingsAmountDispatcher,
+  calculateSavingsDispatcher
 };
 

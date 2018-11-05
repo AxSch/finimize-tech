@@ -10,7 +10,7 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		calculate(1000, 1)
+		calculate(1000, 100, 1.30, 1)
 			.then(r => this.setState({
             	loading: false,
                 result: r.data.result

@@ -9,7 +9,7 @@ export default class InterestFreqInput extends Component {
   }
   
 	handleChange(value) {
-		this.props.setFrequency(value);
+		this.props.setFrequency(Number(value));
 	}
 
 	render() {

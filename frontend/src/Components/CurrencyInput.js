@@ -16,10 +16,10 @@ export default class CurrencyInput extends Component {
 		const value = e.target.value
 		this.setState({value});
 		if (this.props.inputLabel === "Savings") {
-			this.props.setSavingsAmount(value);
+			this.props.setSavingsAmount(Number(value));
 		} 
 		else if (this.props.inputLabel === "Monthly") {
-			this.props.setMonthlyAmount(value);
+			this.props.setMonthlyAmount(Number(value));
 		}
 	}
 
