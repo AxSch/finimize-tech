@@ -2,7 +2,7 @@
 def calculate(savings_amount, monthly_amount, interest_rate, interest_freq):
   results=[]
   result = 0 
-  t = 10
+  t = 50
   for year in range(1, t + 1):
       P = savings_amount
       r = interest_rate/100
