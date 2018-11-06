@@ -27,7 +27,6 @@ const setFrequencyDispatcher = (frequency) => {
 
 const calculateSavingsDispatcher = (savingsAmount, monthlyAmount, interestRate, interestFreq) => {
   return dispatch => {
-    console.log(savingsAmount, monthlyAmount, interestRate, interestFreq);
     calculate(savingsAmount, monthlyAmount, interestRate, interestFreq)
       .then(
         result => {
