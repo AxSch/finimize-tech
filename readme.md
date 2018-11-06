@@ -41,15 +41,33 @@ python3 manage.py runserver
 
 * Server should be running at http://localhost:8000
 
+## Client setup
 
- ## Client setup
+* cd into `frontend` and run `yarn install`
 
- * cd into `frontend` and run `yarn install`
-
- * Run `yarn start`. 
+* Run `yarn start`. 
 
 The webapp should now be running at http://localhost:3000 🚀
 
+## To run the tests
+
+* For Django tests run:
+
+```
+python3 manage.py runserver
+```
+
+* For frontend, `cd` into `frontend` dir, then run
+
+```
+yarn test
+```
+
+* For utils, `cd` into `tests` dir, then run
+
+```
+pytest test_utils.py
+```
 
 ## The challenge
 
