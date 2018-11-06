@@ -1,38 +1,35 @@
 import React, { Component } from "react"
-import { calculate } from "./API"
 import InputGraphSectionContainer from './Components/Containers/InputGraphSection'
 import "./App.css"
+import PropTypes from "prop-types"
 
 class App extends Component {
-	state = {
-		loading: true,
-		result: null
-	}
 
 	componentDidMount() {
-		calculate(1000, 100, 1.30, 1)
-			.then(r => this.setState({
-            	loading: false,
-                result: r.data.result
-			}))
+		const { calculateSavings } = this.props;
+		calculateSavings(1001, 100, 1.30, 1);
 	}
 
 	render() {
-	    const {loading, result} = this.state
-
+		const { calculations } = this.props;
 		return (
 			<div className="App">
 				<header className="App-header">
 					<h1 className="App-title">Finimize dev challenge</h1>
 				</header>
-                    {loading ?
+                    {calculations.loading === true ?
                         'Loading...'
                     :
-					 	<InputGraphSectionContainer {...{result}}/>
+					 	<InputGraphSectionContainer calculations={calculations}/>
                     }
 			</div>
 		)
 	}
 }
+
+App.propTypes = {
+	calculateSavings: PropTypes.func,
+	calculations: PropTypes.object
+  }
 
 export default App
