@@ -63,7 +63,7 @@ class InputGraphSection extends PureComponent {
           {/*We have included some sample data here, you will need to replace this
             with your own. Feel free to change the data structure if you wish.*/}
           <DisplayGraph
-            data={calculations.graph_results != undefined ? calculations.graph_results :dummyGraphData}
+            data={calculations.graph_results !== undefined ? calculations.graph_results :dummyGraphData}
           />
         </div>
       </div>
