@@ -10,7 +10,6 @@ def calculate(savings_amount, monthly_amount, interest_rate, interest_freq):
       FV = calculateFutureValue(monthly_amount, interest_rate, interest_freq, year)
       compound_interest = P * (1 + r/n)**(n * year)
       result = compound_interest + FV
-      print(result)
       results.append({"year": year, "amount": result})
   return results, result
 
