@@ -55,9 +55,9 @@ class InputGraphSection extends PureComponent {
           </p>
           <InterestFreqInput setFrequency={setFrequency}/>
         </div>
-        <div>
+        <div className="calculation-result">
           <h3>Savings after 50 years:</h3>
-          {calculations.result}
+          <p>{calculations.result}</p>
         </div>
         <div className="financial-display">
           {/*We have included some sample data here, you will need to replace this
