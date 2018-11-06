@@ -9,10 +9,10 @@ import "./InputGraphSection.css";
 class InputGraphSection extends PureComponent {
   componentDidUpdate(prevProps){
     const { calculations, calculateSavings } = this.props;
-    if (calculations.initialSavings !== prevProps.calculations.initialSavings && calculations.initialSavings != undefined||
-        calculations.interestRate !== prevProps.calculations.interestRate && calculations.interestRate != undefined||
-        calculations.monthlySaveAmount !== prevProps.calculations.monthlySaveAmount  && calculations.monthlySaveAmount != undefined||
-        calculations.interestFreq !== prevProps.calculations.interestFreq && calculations.interestFreq != undefined ) {
+    if (calculations.initialSavings !== prevProps.calculations.initialSavings||
+        calculations.interestRate !== prevProps.calculations.interestRate||
+        calculations.monthlySaveAmount !== prevProps.calculations.monthlySaveAmount||
+        calculations.interestFreq !== prevProps.calculations.interestFreq ) {
           calculateSavings(calculations.initialSavings, calculations.monthlySaveAmount, calculations.interestRate, calculations.interestFreq)
     }
   }
