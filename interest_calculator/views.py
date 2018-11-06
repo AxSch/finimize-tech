@@ -13,5 +13,6 @@ class CalculationView(APIView):
                 serializer.validated_data["monthly_amount"],
                 serializer.validated_data["interest_rate"],
                 serializer.validated_data["interest_freq"])
+            result = round(result, 2)
             return Response({'graph_result': results,'result': result })
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
