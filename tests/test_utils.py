@@ -6,6 +6,5 @@ def test_calculate():
   interest_rate = 5
   interest_freq = 12
   results, result = calculate(savings_amount, monthly_amount, interest_rate, interest_freq)
-  result = round(result, 2)
   assert(result == 327462.11)
   assert(len(results) == 50)
